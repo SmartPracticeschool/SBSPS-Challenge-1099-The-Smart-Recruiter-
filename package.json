@@ -1,0 +1,23 @@
+{
+  "name": "ibm_hackchallenge",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SmartPracticeschool/SBSPS-Challenge-1099-The-Smart-Recruiter-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SmartPracticeschool/SBSPS-Challenge-1099-The-Smart-Recruiter-/issues"
+  },
+  "homepage": "https://github.com/SmartPracticeschool/SBSPS-Challenge-1099-The-Smart-Recruiter-#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
