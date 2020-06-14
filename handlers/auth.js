@@ -3,18 +3,7 @@ const app = express.Router();
 const Cloudant = require('@cloudant/cloudant');
 const config = require(`../config/all.${process.env.NODE_ENV}.json`);
 const cloudantConfig = config.ibm_services;
-
-const cloudant = new Cloudant(
-    { 
-        url: cloudantConfig.url, 
-        plugins: { 
-            iamauth: { 
-                iamApiKey: cloudantConfig.iamKey 
-            }
-        } 
-    }
-);
-
+const cloudant = new Cloudant({url: cloudantConfig.url, plugins: {iamauth: {iamApiKey: cloudantConfig.iamKey}}});
 const db = cloudant.db.use("ibm_hackchallenge");
 
 app.get("/auth/login",(req,res)=>{
