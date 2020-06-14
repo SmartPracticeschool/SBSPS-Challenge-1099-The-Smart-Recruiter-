@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Winter is far away</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
     <div class="forms" id="forms">
         <h2>Sign up Form</h2>
         <!-- set the action to where we need to go  -->
-        <form class="form2">
+        <form class="form2" method="post" action="/auth/signup" enctype="application/json">
             <div class="container2">
                 <label><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="uname" required>
