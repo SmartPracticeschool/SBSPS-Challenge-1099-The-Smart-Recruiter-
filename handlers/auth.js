@@ -2,7 +2,7 @@ const express = require("express");
 const app = express.Router();
 
 app.get("/auth/login",(req,res)=>{
-    // for login
+    res.render('login.ejs');
 })
 
 app.get("/auth/signup",(req,res)=>{

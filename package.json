@@ -18,6 +18,7 @@
   "homepage": "https://github.com/SmartPracticeschool/SBSPS-Challenge-1099-The-Smart-Recruiter-#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "ejs": "^3.1.3",
     "express": "^4.17.1"
   }
 }
