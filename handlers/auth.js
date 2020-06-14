@@ -6,7 +6,7 @@ app.get("/auth/login",(req,res)=>{
 })
 
 app.get("/auth/signup",(req,res)=>{
-    // for signup
+    res.render('signup.ejs');
 })
 
 
