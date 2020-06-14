@@ -1,6 +1,15 @@
 /*set border to the form*/
 
-.container1 .container2 {
+.form1 {
+    border: 3px solid #f1f1f1;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 500px;
+    max-height: 100px;
+    margin-bottom: 16rem;
+}
+
+.form2 {
     border: 3px solid #f1f1f1;
     display: flex;
     flex-wrap: wrap;
