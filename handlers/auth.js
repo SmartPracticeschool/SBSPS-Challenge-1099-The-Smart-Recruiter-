@@ -19,12 +19,49 @@ app.get("/auth/signup",(req,res)=>{
 app.post("/auth/signup",(req,res)=>{
     const {uname,email,psw} = req.body; 
     db.insert({_id:email,username:uname,email,password:psw[0]},(err,data)=>{
-        if(!err)
+        if(!err){
             res.send("successfully signed you up");
-        else
+            console.log(data);
+        }
+        else {
             res.send("soemthig went wrong");
+            console.log(err);
+        }
     })
 })
+
+app.post("/auth/login",(req,res)=>{
+    console.log(req.body);
+    const {uname,psw} = req.body;
+    
+    db.get(uname, function(err, data) {
+        if(!err){
+            console.log(req.body);
+            console.log(data);
+            const {password} =data;
+            
+            if (password === psw) {
+                console.log("Successfuly logged in");
+                res.send("Successfuly logged in");
+            }
+            else {
+                console.log("wrong password");
+                res.send("Wrong password");
+            }
+        }
+        else {
+            res.send("soemthig went wrong");
+            console.log(err);
+        }
+        // console.log('Error:', err);
+        // console.log('Data:', data);
+        // keep a copy of the doc so you know its revision token
+        
+        
+      });
+})
+
+
 
 
 module.exports = app;
