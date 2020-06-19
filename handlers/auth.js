@@ -1,7 +1,6 @@
 const express = require("express");
 const app = express.Router();
 const Cloudant = require('@cloudant/cloudant');
-console.log(process.env.NODE_ENV)
 const config = require(`../config/all.${process.env.NODE_ENV}.json`);
 const cloudantConfig = config.ibm_services;
 const cloudant = new Cloudant({url: cloudantConfig.url, plugins: {iamauth: {iamApiKey: cloudantConfig.iamKey}}});
@@ -25,6 +24,5 @@ app.post("/auth/signup",(req,res)=>{
             res.send("soemthig went wrong");
     })
 })
-
 
 module.exports = app;
