@@ -4,7 +4,9 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start_shiv": "NODE_ENV=development user=shiv nodemon app.js",
+    "start_sree":"NODE_ENV=development user=sree nodemon app.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +19,7 @@
   },
   "homepage": "https://github.com/SmartPracticeschool/SBSPS-Challenge-1099-The-Smart-Recruiter-#readme",
   "dependencies": {
+    "@cloudant/cloudant": "^4.2.4",
     "cors": "^2.8.5",
     "ejs": "^3.1.3",
     "express": "^4.17.1"

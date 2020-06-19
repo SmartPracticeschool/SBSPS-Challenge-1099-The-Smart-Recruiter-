@@ -1,0 +1,11 @@
+{
+    "ibm_services_shiv":
+    {
+        "url":"https://ac43882a-a05f-4d00-8fe1-5d68f45296eb-bluemix.cloudant.com/",
+        "iamKey":"dGDcgwblo-_8sHaDa4d4TkuN-e1arGBWcCGenDRjIi9g"
+    },
+    "ibm_services_sree":{
+        "url":"https://84eb8d7c-3bb2-4d61-9d94-e519f5190e11-bluemix.cloudant.com/",
+        "iamKey":"5NMJPvEeG4a-_oH7ir7ayL2ni_lVOKbP62FbSj_EW8qD"
+    }
+}

@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Winter is far away</title>
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
-
+    
     <div class="forms" id="forms">
         <!-- for a common container use this element -->
         <h2>Login Form</h2>
         <!--Step 1 : Adding HTML-->
         <!-- set the action to where we need to go  -->
-        <form class="form1">
+        <form class="form1" method="POST" action="/auth/login">
             <div class="container1">
                 <label><b>Username</b></label>
                 <input type="text" placeholder="Enter Username" name="uname" required>

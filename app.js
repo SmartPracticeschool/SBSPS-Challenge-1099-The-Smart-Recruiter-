@@ -2,7 +2,8 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
-app.use(express.static(__dirname));
+app.use(express.urlencoded({extended:true}));
+app.use(express.static("css"));
 app.use(cors());
 
 const auth = require("./handlers/auth");
