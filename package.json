@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start_shiv": "NODE_ENV=development user=shiv nodemon app.js",
-    "start_sree":"NODE_ENV=development user=sree nodemon app.js"
+    "start_sree": "NODE_ENV=development user=sree nodemon app.js",
+    "start_arindam": "NODE_ENV=development user=arindam nodemon app.js"
   },
   "repository": {
     "type": "git",
