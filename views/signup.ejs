@@ -14,6 +14,9 @@
                 <input class="forms-item" type="text" placeholder="Email ID *" name="email" required>
                 <input class="forms-item" type="password" placeholder="Password *" name="psw" required>
                 <input class="forms-item" type="password" placeholder="Re-Enter Password *" name="psw" required>
+                <% if( status ) { %>
+                    <span class="forms-item"><%= status %></span>
+                <% } %>
                 <button class="forms-item forms-btn" type="submit" >SIGN UP</button>
                 <div class="forms-item">Hidden</div>
             </form>

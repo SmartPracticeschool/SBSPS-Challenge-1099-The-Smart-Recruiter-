@@ -8,7 +8,8 @@ app.use(session({ secret: "cats",resave:false, saveUninitialized: true }));
 app.use(express.static("css"));
 app.use(cors());
 
-const auth = require("./handlers/auth");
+// const auth = require("./handlers/auth");
+const auth = require("./handlers/auth2.0");
 
 app.use(auth);
 

@@ -7,57 +7,71 @@ const cloudant = new Cloudant({url: cloudantConfig.url, plugins: {iamauth: {iamA
 const db = cloudant.db.use("ibm_hackchallenge");
 
 app.get("/auth/login",(req,res)=>{
-    res.render('login.ejs');
+    res.render('login.ejs',{status:false});
 })
 
 app.get("/auth/signup",(req,res)=>{
-    res.render('signup.ejs');
+    res.render('signup.ejs',{status:false});
 })
 
 
 app.post("/auth/signup",(req,res)=>{
     const {uname,email,psw} = req.body;
-    db.insert({_id:email,username:uname,email,password:psw[0]},(err,data)=>{
-        if(!err){
-            res.send("successfully signed you up");
-            console.log(data);
-        }
-        else {
-            res.send("soemthig went wrong");
-            console.log(err);
-        }
-    })
+    console.log(uname,email,psw);
+    var flag_email=0;
+    var flag_psw=0;
+    // console.log(flag_psw,flag_email);
+    if((/^[^\s@]+@[^\s@]+\.[^\s@]+$/).test(email)){flag_email=1;}
+    if(psw[0] === psw[1]){flag_psw=1;}
+    if(!flag_email){
+        res.render("signup.ejs",{status:"Not a Valid Email"});
+    }
+    if(!flag_psw){
+        res.render("signup.ejs",{status:"Password not Matching"});
+    }
+    // console.log(flag_psw,flag_email);
+    if(flag_email && flag_psw){
+        db.insert({_id:email,username:uname,email,password:psw[0]},(err,data)=>{
+            if(!err){
+                req.session.user = uname;
+                res.render('home.ejs',{ user:req.session.user });
+            }
+            else {
+                res.render("signup.ejs",{status:"Something Went Wrong Try Again"});
+            }
+        })
+    }
 })
 
 app.post("/auth/login",(req,res)=>{
-    const {uname,psw} = req.body;
-    
-    db.get(uname, (err, data)=>{
+    const {email,psw} = req.body;
+    db.get(email, (err, data)=>{
         if(!err){
-            const {password} =data;
-            
+            const {password,username} =data;
             if (password === psw) {
-                req.session.user = uname;
-                res.send("Successfuly logged in");
+                req.session.user = username;
+                // console.log(req.session);
+                res.render('home.ejs',{ user:req.session.user });
             }
             else {
-                res.send("Wrong password");
+                res.render("login.ejs",{status:"Wrong Email or Password"});
             }
         }
         else {
-            res.send("soemthig went wrong");
-            console.log(err);
+            res.render("login.ejs",{status:"Something went Wrong / Invalid Input"});
+            // console.log(err);
         }
     });
 });
 
 app.get("/auth/logout",(req,res)=>{
     req.session.destroy();
-    res.send("logout success");
+    res.render("home.ejs",{user:false});
 })
 
 app.get("/",(req,res)=>{
-    res.render('home.ejs',{user:req.session.uname});
+    // console.log(req.session);
+    res.render('home.ejs',{ user:req.session.uname });
 })
 
 module.exports = app;
