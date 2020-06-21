@@ -1,14 +1,36 @@
+:root{
+    font-family: Arial, Helvetica, sans-serif;
+}
 .navbar{
-    background-color: aqua;
+    background-color: rgb(66, 135, 245);
     display: flex;
+    justify-content: end;
+    align-items: center;
 }
 .brand{
     font-size: 2rem;
     padding: 1rem;
+    margin-right: auto;
+}
+a:link{
+    text-decoration: none;
+    color: white;
+}
+a:visited{
+    text-decoration: none;
+    color: white;
 }
 .btn{
-    
+    border: none;
+    padding: 1rem;
+    background-color: transparent;
+    border: 5px solid rgb(27, 112, 247);
+    border-radius: .7rem;
+    color: rgb(255, 255, 255);
+}
+.btn:hover{
+    background-color: rgb(27, 112, 247);
 }
 .primary-btn{
-    
+    padding: 1rem;
 }
