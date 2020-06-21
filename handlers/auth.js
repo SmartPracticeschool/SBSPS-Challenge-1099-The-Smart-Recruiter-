@@ -57,7 +57,7 @@ app.get("/auth/logout",(req,res)=>{
 })
 
 app.get("/",(req,res)=>{
-    res.render('home.ejs');
+    res.render('home.ejs',{user:req.session.uname});
 })
 
 module.exports = app;
