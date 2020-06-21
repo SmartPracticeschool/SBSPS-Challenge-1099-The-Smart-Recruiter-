@@ -1,9 +1,12 @@
 const express = require("express");
 const app = express.Router();
-const Cloudant = require('@cloudant/cloudant');
+const Cloudant = require("@cloudant/cloudant");
 const config = require(`../config/all.${process.env.NODE_ENV}.json`);
-const cloudantConfig = config['ibm_services_'+process.env.user];
-const cloudant = new Cloudant({url: cloudantConfig.url, plugins: {iamauth: {iamApiKey: cloudantConfig.iamKey}}});
+const cloudantConfig = config["ibm_services_" + process.env.user];
+const cloudant = new Cloudant({
+  url: cloudantConfig.url,
+  plugins: { iamauth: { iamApiKey: cloudantConfig.iamKey } },
+});
 const db = cloudant.db.use("ibm_hackchallenge");
 
 app.get("/auth/login",(req,res)=>{
@@ -73,5 +76,4 @@ app.get("/",(req,res)=>{
     // console.log(req.session);
     res.render('home.ejs',{ user:req.session.uname });
 })
-
 module.exports = app;
