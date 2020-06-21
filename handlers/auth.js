@@ -16,7 +16,7 @@ app.get("/auth/signup",(req,res)=>{
 
 
 app.post("/auth/signup",(req,res)=>{
-    const {uname,email,psw} = req.body; 
+    const {uname,email,psw} = req.body;
     db.insert({_id:email,username:uname,email,password:psw[0]},(err,data)=>{
         if(!err){
             res.send("successfully signed you up");
@@ -37,6 +37,7 @@ app.post("/auth/login",(req,res)=>{
             const {password} =data;
             
             if (password === psw) {
+                req.session.user = uname;
                 res.send("Successfuly logged in");
             }
             else {
@@ -48,6 +49,11 @@ app.post("/auth/login",(req,res)=>{
             console.log(err);
         }
     });
+});
+
+app.get("/auth/logout",(req,res)=>{
+    req.session.destroy();
+    res.send("logout success");
 })
 
 app.get("/",(req,res)=>{
