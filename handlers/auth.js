@@ -50,4 +50,8 @@ app.post("/auth/login",(req,res)=>{
     });
 })
 
+app.get("/",(req,res)=>{
+    res.render('home.ejs');
+})
+
 module.exports = app;
