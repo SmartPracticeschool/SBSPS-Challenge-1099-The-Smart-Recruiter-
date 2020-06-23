@@ -5,8 +5,7 @@ const session = require("express-session");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(session({ secret: "cats", resave: false, saveUninitialized: true }));
-app.use(express.static("css"));
-app.use(express.static("script"));
+app.use(express.static("static"));
 app.use(cors());
 
 const auth = require("./handlers/auth");

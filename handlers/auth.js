@@ -8,7 +8,7 @@ const db = cloudant.db.use("ibm_hackchallenge");
 
 app.post("/auth/signup",(req,res)=>{
     const {uname,email,psw} = req.body;
-    console.log(uname,email,psw);
+    // console.log(uname,email,psw);
     var flag_email=0;
     var flag_psw=0;
     // console.log(flag_psw,flag_email);
@@ -17,11 +17,11 @@ app.post("/auth/signup",(req,res)=>{
     if(!flag_email){
         res.render("home.ejs",{status:"Not a Valid Email", user:req.session.user, flag:2});
     }
-    if(!flag_psw){
+    else if(!flag_psw){
         res.render("home.ejs",{status:"Password not Matching", user: req.session.user, flag:2});
     }
     // console.log(flag_psw,flag_email);
-    if(flag_email && flag_psw){
+    else if(flag_email && flag_psw){
         db.insert({_id:email,username:uname,email,password:psw[0]},(err,data)=>{
             if(!err){
                 req.session.user = uname;
@@ -49,7 +49,7 @@ app.post("/auth/login",(req,res)=>{
             }
         }
         else {
-            res.render("home.ejs",{status:"Something went Wrong / Invalid Input",user:req.session.user, flag:1});
+            res.render("home.ejs",{status:"Something went Wrong OR Invalid Input",user:req.session.user, flag:1});
             // console.log(err);
         }
     });

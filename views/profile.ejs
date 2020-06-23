@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title><%= user%></title>
+</head>
+<body class="wallpaper">
+    <nav class="navbar">
+        <div class="nav-brand">
+            <a class="nav-bar-link" href="/">Dashboard</a>
+        </div>
+        <div class="nav-primary-btn">
+            <a class="nav-btn nav-bar-link" href="/profile"><%= user %></a>
+        </div>
+        <div class="nav-primary-btn">
+            <a class="nav-btn nav-bar-link" href="/auth/logout">Logout</a>
+        </div>
+    </nav>
+    
+</body>
+</html>
