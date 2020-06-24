@@ -70,7 +70,7 @@ app.get("/auth/logout",(req,res)=>{
 })
 
 app.get("/",(req,res)=>{
-    // console.log(req.session);
+    console.log(req.session);
     res.render('home2.0.ejs',{ user:req.session.uname ,status:false });
 })
 

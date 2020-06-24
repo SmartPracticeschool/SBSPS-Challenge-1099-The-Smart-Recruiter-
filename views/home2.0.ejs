@@ -109,7 +109,8 @@
         </main>
     </body>
     <script>
-        console.log("what the hell is happengin");
+        var v = <%-JSON.stringify(user)%>;
+        console.log("what the hell is happengin "+v);
         document.getElementById("myfun1").onclick=function() {
             console.log("click");
             document.getElementById("modal-login").style.display = "block";
