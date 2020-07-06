@@ -9,7 +9,13 @@
         <title>Smart Recruiter</title>
         <script>
             function handle(){
-                var temp=<%= flag%>;
+                var temp1='<%= user%>';
+                if(temp1.length>8){
+                    temp1=temp1.substr(0,7)+"...";
+                    document.getElementById("username").innerHTML=temp1;
+                }
+                
+                var temp='<%= flag%>';
                 if(temp==1){
                     login_modal();
                 }
@@ -72,7 +78,7 @@
             </div>
             <% if( user ){ %>
                 <div class="nav-primary-btn">
-                    <a class="nav-btn nav-bar-link" href="/profile"><%= user %></a>
+                    <a class="nav-btn nav-bar-link" id="username" href="/profile">User</a>
                 </div>
                 <div class="nav-primary-btn">
                     <a class="nav-btn nav-bar-link" href="/auth/logout">Logout</a>

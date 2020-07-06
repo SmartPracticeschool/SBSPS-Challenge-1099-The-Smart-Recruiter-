@@ -4,21 +4,72 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title><%= user%></title>
+    <script>
+        function handle(){
+            var temp='<%= user%>';
+            if(temp.length>8){
+                temp=temp.substr(0,7)+"...";
+            }
+            document.getElementById("username").innerHTML=temp;
+            window.onresize = function(){
+                // // console.log(window.innerWidth);
+                // if(window.innerWidth<550 && window.innerWidth>390){
+                //     document.getElementById("company-name").innerHTML="S-Recruiter"
+                // }
+                // else if(window.innerWidth<390){
+                //     document.getElementById("company-name").innerHTML="S R"
+                // }
+                // else{
+                //     document.getElementById("company-name").innerHTML="Smart Recruiter"
+                // }
+            }
+        }
+    </script>
 </head>
-<body class="wallpaper">
+<body onload="handle()" class="wallpaper">
     <nav class="navbar">
         <div class="nav-brand">
             <a class="nav-bar-link" href="/">Dashboard</a>
         </div>
         <div class="nav-primary-btn">
-            <a class="nav-btn nav-bar-link" href="/profile"><%= user %></a>
+            <span class="nav-btn nav-bar-link" id="username" >User</span>
         </div>
         <div class="nav-primary-btn">
             <a class="nav-btn nav-bar-link" href="/auth/logout">Logout</a>
         </div>
     </nav>
-    
+    <div class="dashboard-body">
+        <div class="left-item">
+            sdfsdf
+            <br><br><br>
+            Avatar
+            <br><br><br>
+            username
+            <br>
+            email address
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>
+            contact us
+            
+            <br><br><br><br>
+            follow us
+            
+            <br><br><br><br>
+            twiter,facebook,linkedin
+        </div>
+        <div class="right-item">
+            sdfsdf
+            <br><br><br><br>
+            All task
+            <br><br><br><br>
+            recent questions
+
+        </div>
+    </div>
 </body>
 </html>
